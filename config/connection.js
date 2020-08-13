@@ -7,7 +7,7 @@ if (process.env.JAWSDB_URL) {
 } else {
   pool = mysql.createPool({
     host: "localhost",
-    port: 3306,
+    port: 8080,
     user: "root",
     password: "YourRootPassword",
     database: "burgers_db",

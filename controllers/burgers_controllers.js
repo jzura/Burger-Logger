@@ -1,20 +1,18 @@
+//required packages
 const express = require("express");
 const burger = require("../models/burger.js");
 
 const router = express.Router();
 
-/**
- * provides a route to get all burger records.
- * it returns an html generated using handlebars.
- */
-router.get("/", (request, response) => {
+//get request to get all burger records
+router.get("/", (request, response) => { 
     burger
         .all()
         .then(data => {
-            const hbsObject = {
+            const burgerObject = {
                 burgers: data
             };
-            response.render("index", hbsObject);
+            response.render("index", burgerObject);
         })
         .catch(error => {
             console.log(error);
@@ -22,11 +20,9 @@ router.get("/", (request, response) => {
         });
 });
 
-/**
- * it exposes a post request to create a new burger entry in database.
- * returns the id of new created burger in database.
- */
-router.post("/burgers", (request, response) => {
+//post request to create new burger
+
+router.post("/api/burgers", (request, response) => {
     burger
         .create(request.body)
         .then(result => response.json({ id: result.insertId }))
@@ -39,7 +35,8 @@ router.post("/burgers", (request, response) => {
 /**
  * it exposes a put request to update entry for a specific existing burger in database.
  */
-router.put("/burgers/:id", (request, response) => {
+router.put("/api/burgers/:id", (request, response) => {
+    console.log(request.body)
     burger
         .update({
             burger: request.body,

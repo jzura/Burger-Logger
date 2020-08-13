@@ -1,11 +1,13 @@
 const orm = require("../config/orm.js");
 
 const burger = {
+    //select all burger function
     all: () => {
-        return orm.selectWhatWhere({
+        return orm.selectAll({
             table: 'burgers'
         });
     },
+    //create new burger function
     create: (burgerObject) => {
         const cols = [];
         const vals = [];
@@ -20,6 +22,7 @@ const burger = {
             vals: vals
         });
     },
+    //update existing burger function
     update: ({ burger, where }) => {
         return orm.updateOne({
             table: 'burgers',

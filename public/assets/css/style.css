@@ -1,0 +1,76 @@
+body {
+    background-color: lightcoral;
+}
+
+h2 {
+    color: black;
+    margin-left: 10%;
+}
+
+p {
+    color: black;
+}
+
+a {
+    color: white
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: white;
+    color: cadetblue;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/*
+* keeping burger image icon smaller size.
+*/
+
+.burger-image {
+    width: 70%;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.btn {
+    color: white;
+    background-color: cadetblue;
+}
+
+.burger-submit-btn {
+    margin-left: 40%;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: black;
+    color: white;
+}
+
+.devour-button {
+    float: right;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.devoured-list {
+    opacity: 0.5;
+}
+
+.undevoured-list {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 4%;
+}
+
+.modal-title {
+    color: red;
+}

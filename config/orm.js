@@ -1,9 +1,10 @@
+//Import mySQL connection
 const { getConnection } = require("./connection.js");
 
 const orm = {
-    // based on input objects, returns all or relevant from give table as part of response.
+    
     //it also returns a promise to get relevant data.
-    selectWhatWhere: ({ whatToSelect, table, colName, colValue }) => {
+    selectAll: ({ whatToSelect, table, colName, colValue }) => {
         let queryString = "";
         let queryParamter = [];
         queryString += whatToSelect ? `SELECT ?? FROM ??` : `SELECT * FROM ??`;
@@ -32,7 +33,7 @@ const orm = {
         return createDataPromise(queryString, queryParamter);
     }
 }
-// converts an object into a string array so that it can be used to create relevant sql.
+// Helper function to convert object key/value pairs to SQL syntax
 const objToSql = (object) => {
     const array = [];
     // loop through the keys and push the key/value as a string in the array
@@ -50,6 +51,7 @@ const objToSql = (object) => {
     return array.toString();
 }
 
+// Helper function for SQL syntax
 const printQuestionMarks = (count) => {
     const array = [];
     for (let i = 0; i < count; i++) {
